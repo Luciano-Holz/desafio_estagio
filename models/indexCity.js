@@ -3,7 +3,7 @@
 const connection = require('../infra/connection');
 //class to insert data into the city table
 class City {
-    //Routes for table city
+    //Methods for table city
     //city ​​class add method
     add(city, res) {
         const sql = 'INSERT INTO city SET ?';
@@ -14,7 +14,7 @@ class City {
             } else {
                 res.status(201).json(city);
             }
-        } )
+        })
     }
     //city ​​class list method
     list(res) {
@@ -26,7 +26,7 @@ class City {
             } else {
                 res.status(200).json(results);
             }
-        } )
+        })
     }
     //city ​​class nameList method
     nameList(res) {
@@ -38,9 +38,9 @@ class City {
             } else {
                 res.status(200).json(results);
             }
-        } )
+        })
     }
-
+    //city ​​class stateList method
     stateList(res) {
         const sql = `SELECT state FROM city`;
 
@@ -50,9 +50,8 @@ class City {
             } else {
                 res.status(200).json(results);
             }
-        } )
+        })
     }
-    
 }
 
 module.exports = new City;
