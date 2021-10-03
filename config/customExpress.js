@@ -1,4 +1,4 @@
-//File with configurations from aplication 
+//File with configurations from application 
 //import module express
 const express = require('express');
 //import module consign 
@@ -17,4 +17,5 @@ module.exports = () => {
         .into(app)
 
         return app;
+        
 }
