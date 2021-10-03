@@ -20,9 +20,9 @@ module.exports = app => {
         City.nameList(res);
     });
     //city table get(state cities) route
-    //app.get('/:cities/state', (req, res) => {
-        //City.stateList(res);
-   // });
+    app.get('/:cities/state', (req, res) => {
+        City.stateList(res);
+    });
     
     //Routes for table client
     //route post for table client
