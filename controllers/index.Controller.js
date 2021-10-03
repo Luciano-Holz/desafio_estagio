@@ -34,6 +34,11 @@ module.exports = app => {
     app.get('/clients/', (req, res) => {
         Client.lists(res);
     });
+    //route delete from table client
+    app.delete('/clients/:id', (req, res) => {
+        const id = parseInt(req.params.id);
+        Client.remove(id, res);
+    })
 
 
 }
