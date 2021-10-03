@@ -25,14 +25,15 @@ module.exports = app => {
     });
     
     //Routes for table client
-    //route post for table client
-    // app.post('/clients/', (req, res) => {
-    //     const client = req.body;
-    //     Client.add(client, res);
-    // });
-    // app.get('/clients/', (req, res) => {
-    //     Client.lists(res);
-    // });
+    //route post from table client
+    app.post('/clients/', (req, res) => {
+        const client = req.body;
+        Client.add(client, res);
+    });
+    //route get from table client
+    app.get('/clients/', (req, res) => {
+        Client.lists(res);
+    });
 
 
 }
