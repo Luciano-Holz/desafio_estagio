@@ -3,6 +3,7 @@ class Tablees {
     init(connection) {
         this.connection = connection;
         this.createCity();
+        //this.createClient();
     }
 
     createCity() {
@@ -10,12 +11,24 @@ class Tablees {
 
         this.connection.query(sql, erro => {
             if(erro) {
-                console.log('Table not created.', erro);
+                console.log('Table city not created.', erro);
             } else {
-                console.log('Table created successfully!');
+                console.log('Table city created successfully!');
             }
         })
     }
+
+    // createClient() {
+    // const sql = 'CREATE TABLE IF NOT EXISTS client (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, gender ENUM("Masculino", "Feminino", "Outro", "Prefiro não dizer"), name VARCHAR(100) NOT NULL, birth_date DATE NOT NULL, age INT NOT NULL, city VARCHAR(50), FOREIGN KEY(city) REFERENCES city(name) ON DELETE CASCADE)';
+    
+    // this.connection.query(sql, erro => {
+    //     if(erro) {
+    //         console.log('Table client not created.', erro);
+    //     } else {
+    //         console.log('Table client created successfully!');
+    //     }
+    // });
+    // }
 }
 
 module.exports = new Tablees;
