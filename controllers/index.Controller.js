@@ -16,9 +16,9 @@ module.exports = app => {
         City.list(res);
     });
     //city ​​table get(name cities) route
-    //app.get('/:cities/name', (req, res) => {
-        //City.nameList(res);
-    //});
+    app.get('/:cities/name', (req, res) => {
+        City.nameList(res);
+    });
     //city table get(state cities) route
     //app.get('/:cities/state', (req, res) => {
         //City.stateList(res);
