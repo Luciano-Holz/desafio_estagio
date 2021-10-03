@@ -28,6 +28,17 @@ class Client {
             }
         })
     }
+    remove(id, res) {
+        const sql = `DELETE FROM client WHERE ID=${id}`;
+        
+        connection.query(sql, (error) => {
+            if(error) {
+                res.status(400).json(error);
+            } else {
+                res.status(200).json(`The id ${id} was deleted successfully`);
+            }
+        })
+    }
 }
 
 module.exports = new Client;
