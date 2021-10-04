@@ -39,6 +39,12 @@ module.exports = app => {
         const id = parseInt(req.params.id);
         Client.search(id, res);
     });
+    //route patch from table
+    app.patch('/clients/:id', (req, res) => {
+        const id = parseInt(req.params.id);
+        const values = req.body;
+        Client.alter(id, values,res);
+    });
     //route delete from table client
     app.delete('/clients/:id', (req, res) => {
         const id = parseInt(req.params.id);
