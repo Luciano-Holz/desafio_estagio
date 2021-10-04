@@ -8,7 +8,7 @@ class Tablees {
     }
     //creating table city
     createCity() {
-        const sql = 'CREATE TABLE IF NOT EXISTS city (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(50) NOT NULL, state VARCHAR(30) NOT NULL, PRIMARY KEY(id))';
+        const sql = 'CREATE TABLE IF NOT EXISTS city (name VARCHAR(50) NOT NULL, state VARCHAR(30) NOT NULL, PRIMARY KEY(name))';
 
         this.connection.query(sql, error => {
             if(error) {
@@ -20,7 +20,7 @@ class Tablees {
     }
     //creating table client
     createClient() {
-    const sql = 'CREATE TABLE IF NOT EXISTS client (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, name VARCHAR(100) NOT NULL, gender ENUM("Masculino", "Feminino", "Outro", "Prefiro não dizer"), birth_date DATE NOT NULL, age INT NOT NULL, city INT, FOREIGN KEY(city) REFERENCES city(id) ON DELETE CASCADE)';
+    const sql = 'CREATE TABLE IF NOT EXISTS client (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, name VARCHAR(100) NOT NULL, gender ENUM("Masculino", "Feminino", "Outro", "Prefiro não dizer"), birth_date DATE NOT NULL, age INT NOT NULL, city VARCHAR(50), FOREIGN KEY(city) REFERENCES city(name) ON DELETE CASCADE)';
     
     this.connection.query(sql, error => {
         if(error) {
