@@ -23,7 +23,7 @@ class Client {
             {
                 name: "name",
                 valid: nameValid,
-                message: "The customer name must be at least 3 characters long."
+                message: "The name field must have more than 3 characters."
             }  
         ]
         const errors = validations.filter(field => !field.valid);
