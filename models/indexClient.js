@@ -97,7 +97,7 @@ class Client {
     }
     //client class remove method
     remove(id, res) {
-        const sql = `DELETE FROM client WHERE id=?`;
+        const sql = `DELETE FROM client WHERE id=${id}`;
         
         connection.query(sql, (error) => {
             if(error) {
