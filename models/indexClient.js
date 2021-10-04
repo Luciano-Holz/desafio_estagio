@@ -28,8 +28,22 @@ class Client {
             }
         })
     }
+    //client class search method
+    search(id, res) {
+        const sql = `SELECT * FROM client WHERE id=${id}`;
+
+        connection.query(sql, (error, results) => {
+            const client = results[0];
+            if(error) {
+                res.status(400).json(error);
+            } else {
+                res.status(200).json(client);
+            }
+        })
+    }
+    //client class remove method
     remove(id, res) {
-        const sql = `DELETE FROM client WHERE ID=${id}`;
+        const sql = `DELETE FROM client WHERE id=?`;
         
         connection.query(sql, (error) => {
             if(error) {
