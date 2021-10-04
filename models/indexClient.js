@@ -12,7 +12,7 @@ class Client {
             if(error) {
                 res.status(400).json(error);
             } else {
-                res.status(201).json(results);
+                res.status(201).json(client);
             }
         })
     }
@@ -38,6 +38,18 @@ class Client {
                 res.status(400).json(error);
             } else {
                 res.status(200).json(client);
+            }
+        })
+    }
+    //client class alter method
+    alter(id, values, res) {
+        const sql = `UPDATE client SET ? WHERE id=?`;
+
+        connection.query(sql, [values, id], (error, results) => {
+            if(error) {
+                res.status(400).json(error);
+            } else {
+                res.status(200).json({...values, id});
             }
         })
     }
