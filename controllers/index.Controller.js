@@ -15,7 +15,7 @@ module.exports = app => {
     app.get('/cities', (req, res) => {
         City.list(res);
     });
-    //city ​​table get(name cities) route
+    //city table get(name cities) route
     app.get('/:cities/name', (req, res) => {
         City.nameList(res);
     });
@@ -34,10 +34,15 @@ module.exports = app => {
     app.get('/clients/', (req, res) => {
         Client.lists(res);
     });
+    //route get by name table client
+    app.get('/clients/:name', (req, res) => {
+        const name = `"${req.params.name}"`;
+        Client.searchByName(name, res);
+    });
     //route get by id table client
-    app.get('/clients/:id', (req, res) => {
+    app.get('/:id', (req, res) => {
         const id = parseInt(req.params.id);
-        Client.search(id, res);
+        Client.searchById(id, res);
     });
     //route patch from table
     app.patch('/clients/:id', (req, res) => {
